@@ -31,19 +31,19 @@ app.post("/api/gemini", async (req, res) => {
     });
 
     const data = await response.json();
-    console.log("📥 Gemini API 응답:", JSON.stringify(data, null, 2));
+    console.log("Gemini API 응답:", JSON.stringify(data, null, 2));
     
     if (!response.ok) {
-      console.error("❌ API 에러:", data);
+      console.error("API error:", data);
       return res.status(response.status).json(data);
     }
     
     res.json(data);
   } catch (err) {
-    console.error("❌ Gemini 호출 실패:", err);
-    res.status(500).json({ error: "Gemini 호출 실패", details: err.message });
+    console.error("Failed to Gemini:", err);
+    res.status(500).json({ error: "Failed to Gemini", details: err.message });
   }
 });
 
 const PORT = 3001;
-app.listen(PORT, () => console.log(`✅ Proxy server running on http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`Proxy server running on http://localhost:${PORT}`));
