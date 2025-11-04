@@ -7,6 +7,8 @@ import api from "./routes/index.js";
 import signupRouter from "./routes/signup.js";
 import userRouter from './routes/user.js';
 import loginRouter from "./routes/login.js";
+import chatRouter from "./routes/chat.js";
+
 
 
 dotenv.config();
@@ -41,6 +43,7 @@ app.use('/api', api);
 // 클라이언트와 다른 번호로 충돌나지 않도록
 app.use("/api/signup", signupRouter);
 app.use("/api/login", loginRouter);
+app.use("/api/chat", chatRouter);
 
 
 // Gemini API 엔드포인트
